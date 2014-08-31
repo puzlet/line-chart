@@ -1,4 +1,5 @@
 #!vanilla
+
 class $blab.d3Object
 
     constructor: (id) ->
@@ -98,17 +99,3 @@ class $blab.LineChart extends $blab.d3Object
             .scale(@yScale)
             .ticks(@spec.yTicks ? 10)
             .orient("left")
-            
-$blab.stopAnimation = ->
-    clearTimeout $blab.animateId if $blab.animateId
-    $blab.animateId = null
-
-$blab.animate = (snapshotFunction, numSnapshots, delay=10) ->
-    $blab.stopAnimation()
-    n = 1
-    snapshot = ->
-        snapshotFunction()
-        n++
-        $blab.stopAnimation() if n>numSnapshots
-    $blab.animateId = setInterval (-> snapshot()), delay
-
