@@ -69,7 +69,10 @@ class $blab.LineChart extends $blab.d3Object
             r.on "click", -> click(d3.mouse this)
             
         @path = null
-            
+
+    clear: ->
+        @obj.selectAll("path").remove()
+
     plot: (x, y, color="blue", hold=false) ->
         @path.remove() if @path and not hold
         data = ({x: x[idx], y: y[idx]} for xp, idx in x)
