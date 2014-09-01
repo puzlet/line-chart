@@ -1,7 +1,5 @@
 #!vanilla
 
-# Test change
-
 class $blab.d3Object
 
     constructor: (id) ->
